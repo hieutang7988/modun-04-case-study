@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/users/create">Create new users</a>
+<h1>Users</h1>
+<table border="1">
+    <tr>
+        <th> FullName</th>
+        <th>UserName</th>
+        <th>password</th>
+        <th>email</th>
+        <th>address</th>
+        <th>phone</th>
+        <th>avatar</th>
+        <th>activated</th>
+        <th colspan="2">Action</th>
+
+    </tr>
+    <th:block th:each="userDto : ${userDtos}">
+            <td th:text="${userDto.fullName}"></td>
+            <td th:text="${userDto.username}"></td>
+            <td th:text="${userDto.email}"></td>
+            <td th:text="${userDto.password}"></td>
+            <td th:text="${userDto.address}"></td>
+            <td th:text="${userDto.phone}"></td>
+            <td th:text="${userDto.avatar}"></td>
+            <td th:text="${userDto.activated}"></td>
+            <td><a th:href="@{/users/__${userDto.id}__/edit}">Edit</a></td>
+            <td><a th:href="@{/users/__${userDto.id}__/delete-user}">Delete</a></td>
+        </tr>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
+
+
+
+

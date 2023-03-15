@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update role</title>
+</head>
+<body>
+<h1>Update User</h1>
+<p>
+    <a href="/roles">Roles list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/roles/update}" th:object="${roleDto}" method="post" novalidate="novalidate" enctype="multipart/form-data">
+     <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+
+
+        <tr>
+            <td>Description:</td>
+            <td><input type="text" th:field="*{desc}"/></td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Update role"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+
+
+

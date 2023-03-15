@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit products</title>
+</head>
+<body>
+<h1>Edit product</h1>
+<p>
+  <a href="/products">Product list</a>
+</p>
+<th:block th:if="${message}">
+  <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/products/update}" th:object="${productForm}" method="POST" enctype="multipart/form-data">
+  <input type="hidden" th:field="*{id}">
+  <table>
+      <tr>
+      <td> Name:</td>
+      <td><input type="text" th:field="*{name}"/></td>
+    </tr>
+    <tr>
+      <td>Price:</td>
+      <td><input type="text" th:field="*{price}"/></td>
+    </tr>
+
+    <tr>
+      <td>Description:</td>
+      <td><input type="text" th:field="*{description}"/></td>
+    </tr>
+
+    <tr>
+      <td>Material:</td>
+      <td><input type="text" th:field="*{material}"/></td>
+    </tr>
+
+    <tr>
+      <td>Weight:</td>
+      <td><input type="text" th:field="*{weight}"/></td>
+    </tr>
+
+    <tr>
+      <td>Producer:</td>
+      <td>
+        <select th:field="*{producer}">
+          <option th:each="p : ${producers}" th:value="${p.id}" th:text="${p.nameProducer}"></option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Category:</td>
+      <td>
+        <select th:field="*{categories}">
+          <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Image</td>
+      <td><input type="file" th:field="*{image}" ></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Update product"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create customer</title>
+</head>
+<body>
+<h1>Create categories</h1>
+<p>
+    <a href="/producers">Producers list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/producers/create}" th:object="${producer}" method="post" novalidate="novalidate" enctype="multipart/form-data">
+    <table>
+
+        <tr>
+            <td>First name:</td>
+            <td><input type="text" th:field="*{nameProducer}"/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Create producers"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+

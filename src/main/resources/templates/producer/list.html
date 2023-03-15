@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/producers/create">Create new producers</a>
+<h1>categories</h1>
+<table border="1">
+    <tr>
+        <th> Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="producer : ${producers}">
+
+            <td th:text="${producer.getNameProducer()}"></td>
+            <td><a th:href="@{/producers/__${producer.id}__/edit}">Edit</a></td>
+            <td><a th:href="@{/producers/delete-producer/__${producer.id}__ }">Delete</a></td>
+        </tr>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
+
+
